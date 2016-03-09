@@ -22,30 +22,65 @@
     <script src="app/index.js" type="text/javascript"></script>
 </head>
 <body>
-<div class="container" ng-controller="firstController">
+<!--<div class="container" ng-controller="firstController">-->
 
-    <div class="layer block">
-        <div class="layer title">列表一</div>
-        <ul ng-sortable="{group: 'foobar'}" class="block__list block__list_words">
-            <li ng-repeat="item in items">{{item}}</li>
-        </ul>
-    </div>
+<!--<div class="layer block">-->
+<!--<div class="layer title">列表一</div>-->
+<!--<ul ng-sortable="{group: 'foobar'}" class="block__list block__list_words">-->
+<!--<li ng-repeat="item in items">{{item}}</li>-->
+<!--</ul>-->
+<!--</div>-->
 
-    <div class="layer block" style="left: 20%; top: 143px; width: 40%;">
-        <div class="layer title">列表二</div>
-        <ul ng-sortable="barConfig" class="block__list block__list_words">
-            <li ng-repeat="item in bar">{{item}}</li>
-        </ul>
-    </div>
+<!--<div class="layer block" style="left: 20%; top: 143px; width: 40%;">-->
+<!--<div class="layer title">列表二</div>-->
+<!--<ul ng-sortable="barConfig" class="block__list block__list_words">-->
+<!--<li ng-repeat="item in bar">{{item}}</li>-->
+<!--</ul>-->
+<!--</div>-->
 
-    <div data-force="18" class="layer block" style="left: 58%; top: 143px; width: 40%;">
-        <div class="layer title">列表三</div>
-        <ul ng-sortable="{ group: 'foobar' }" class="block__list block__list_tags">
-            <li ng-repeat="item in foo">{{item}}</li>
-        </ul>
+<!--<div data-force="18" class="layer block" style="left: 58%; top: 143px; width: 40%;">-->
+<!--<div class="layer title">列表三</div>-->
+<!--<ul ng-sortable="{ group: 'foobar' }" class="block__list block__list_tags">-->
+<!--<li ng-repeat="item in foo">{{item}}</li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<div class="container">
+    <div id="multi" style="margin-left: 30px">
+        <div>
+            <div data-force="5" class="layer title title_xl">Multi</div>
+        </div>
+
+        <div class="layer tile" data-force="30">
+            <div class="tile__name">Group A</div>
+            <div class="tile__list" ng-sortable="{group:'foobar'}">
+                <span>aaa</span>
+                <span>aaa</span>
+                <span>aaa</span>
+                <span>aaa</span>
+            </div>
+        </div>
+
+        <div class="layer tile" data-force="25">
+            <div class="tile__name">Group B</div>
+            <div class="tile__list" ng-sortable="{group:'foobar'}">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+            </div>
+        </div>
+
+        <div class="layer tile" data-force="20">
+            <div class="tile__name">Group C</div>
+            <div class="tile__list" ng-sortable="{group:'foobar'}">
+                <img src="st/face-08.jpg"><!--
+					--><img src="st/face-09.jpg">
+            </div>
+        </div>
+
     </div>
 </div>
-
 
 </body>
 </html>
