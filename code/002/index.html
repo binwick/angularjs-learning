@@ -9,17 +9,43 @@
     <link href="../../vendor/bootstrap3/css/base.css" rel="stylesheet">
     <link href="../../vendor/bootstrap3/css/bootstrap-datetimepicker.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../vendor/bootstrap3/css/default.css">
+    <link rel="stylesheet" type="text/css" href="app/app.css">
+
 
     <script src="../../vendor/angular/jquery-2.1.1.min.js" type="text/javascript"></script>
     <script src="../../vendor/angular/angular.js" type="text/javascript"></script>
     <script src="../../vendor/bootstrap3/bootstrap.js" type="text/javascript"></script>
     <script src="../../vendor/bootstrap3/moment-with-locales.js" type="text/javascript"></script>
     <script src="../../vendor/bootstrap3/bootstrap-datetimepicker.js" type="text/javascript"></script>
+    <script src="../../vendor/angular/Sortable.js" type="text/javascript"></script>
+    <script src="../../vendor/angular/ng-sortable.js" type="text/javascript"></script>
     <script src="app/index.js" type="text/javascript"></script>
 </head>
 <body>
-<div title="拖拽我" draggable="true">列表1</div>
-<div>列表2</div>
+<div class="container" ng-controller="firstController">
+
+    <div class="layer block">
+        <div class="layer title">列表一</div>
+        <ul ng-sortable="{group: 'foobar'}" class="block__list block__list_words">
+            <li ng-repeat="item in items">{{item}}</li>
+        </ul>
+    </div>
+
+    <div class="layer block" style="left: 20%; top: 143px; width: 40%;">
+        <div class="layer title">列表二</div>
+        <ul ng-sortable="barConfig" class="block__list block__list_words">
+            <li ng-repeat="item in bar">{{item}}</li>
+        </ul>
+    </div>
+
+    <div data-force="18" class="layer block" style="left: 58%; top: 143px; width: 40%;">
+        <div class="layer title">列表三</div>
+        <ul ng-sortable="{ group: 'foobar' }" class="block__list block__list_tags">
+            <li ng-repeat="item in foo">{{item}}</li>
+        </ul>
+    </div>
+</div>
+
 
 </body>
 </html>

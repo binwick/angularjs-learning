@@ -1,51 +1,36 @@
-var app = angular.module('app', []);
-//angular-directive
-app.directive('draggable', ['$document', function ($document) {
-    return function (scope, element, attr) {
-        var startX = 0, startY = 0, x = 0, y = 0;
-        element = angular.element(document.getElementsByClassName("modal-dialog"));
-        element.css({
-            position: 'relative',
-            cursor: 'move'
-        });
-
-        element.on('mousedown', function (event) {
-            // Prevent default dragging of selected content
-            event.preventDefault();
-            startX = event.pageX - x;
-            startY = event.pageY - y;
-            $document.on('mousemove', mousemove);
-            $document.on('mouseup', mouseup);
-        });
-
-        function mousemove(event) {
-            y = event.pageY - startY;
-            x = event.pageX - startX;
-            element.css({
-                top: y + 'px',
-                left: x + 'px'
-            });
-        }
-
-        function mouseup() {
-            $document.off('mousemove', mousemove);
-            $document.off('mouseup', mouseup);
-        }
-    };
-}]);
+var app = angular.module('app', ['ng-sortable']);
 
 app.controller('firstController', ['$scope', '$filter', function ($scope, $filter) {
-    $scope.date = 'zhangsan';
+    $scope.items = ['zhangSan', 'liSi', 'wangWu'];
+    $scope.foo = ['foo 1', 'foo 2'];
+    $scope.bar = ['bar 1', 'bar 2'];
+    $scope.barConfig = {
+        group: 'foobar',
+        animation: 150,
+        onSort: function (evt) {
+            console.log('onSort:', evt);
+        },
+        // Element is removed from the list into another list
+        onRemove: function (/**Event*/evt) {
+            // same properties as onUpdate
+            console.log('onRemove:', evt);
+        },
 
+        // Attempt to drag a filtered element
+        onFilter: function (/**Event*/evt) {
+            var itemEl = evt.item;  // HTMLElement receiving the `mousedown|tapstart` event.
+            console.log('onFilter:', itemEl);
+        },
 
-    angular.element('#datetimepicker1').datetimepicker({
-        format: 'YYYY-MM-DD HH:mm:ss',
-        locale: 'zh-CN'
-    });
-    angular.element('#datetimepicker1').on('dp.change', function (e) {
-        $scope.$apply(function () {
-            $scope.date = $filter('date')(new Date(e.date), 'yyyy-MM-dd HH:mm:ss')
-        })
-    });
-    console.log($scope.date)
+        // Event when you move an item in the list or between lists
+        onMove: function (/**Event*/evt) {
+            // Example: http://jsbin.com/tuyafe/1/edit?js,output
+            evt.dragged; // dragged HTMLElement
+            evt.draggedRect; // TextRectangle {left, top, right и bottom}
+            evt.related; // HTMLElement on which have guided
+            evt.relatedRect; // TextRectangle
+            // return false; — for cancel
+            console.log('onMove:', evt)
+        }
+    };
 }]);
