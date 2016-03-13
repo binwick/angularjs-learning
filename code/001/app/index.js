@@ -18,10 +18,12 @@ app // app 模块
                 var format = attrs['dateFormat'];
                 element.parent().on('dp.change', function (e) {
                     console.log(scope.date);
-                    var newDate = new Date(e.date);
-                    scope.$apply(function () {
-                        scope.date = $filter('date')(newDate, format);
-                    });
+                    if (e.date) {
+                        var newDate = new Date(e.date);
+                        scope.$apply(function () {
+                            scope.date = $filter('date')(newDate, format);
+                        });
+                    }
                 });
 
             }
