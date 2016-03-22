@@ -3,29 +3,29 @@ var myApp = angular.module('myApp', [])
     .directive('customTags', function () {
         return {
             restrict: 'ECAM',
-            template:'<div>新数据 <span ng-transclude></span></div>',
+            template: '<div>新数据<span ng-transclude></span></div>',
             replace: true,
-            transclude:true
+            transclude: true
         }
     })
 
     .directive('customTags2', function () {
         return {
             restrict: 'ECAM',
-            template:'<div>2</div>',
+            template: '<div>2</div>',
             replace: true,
-            priority:-1
+            priority: 1
         }
     })
 
     .directive('customTags3', function () {
         return {
             restrict: 'ECAM',
-            template:'<div>3</div>',
+            template: '<div>3</div>',
             replace: true,
-            priority: 0,
+            priority: 2,
             // 小于0的directive 都不会执行
-            terminal:true
+            terminal: true
         }
     })
 

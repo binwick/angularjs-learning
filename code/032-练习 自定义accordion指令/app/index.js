@@ -59,7 +59,7 @@ angular.module('myApp', [])
                     kittencupGroupContrller.closeOtherCollapse(scope);
                 };
 
-
+                // group 放所有的 scope
                 kittencupGroupContrller.groups.push(scope);
             }
         }
