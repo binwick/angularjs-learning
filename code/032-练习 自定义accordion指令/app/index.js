@@ -49,6 +49,7 @@ angular.module('myApp', [])
             scope: {
                 heading: '@'
             },
+            transclude: true,
             link: function (scope, element, attrs, kittencupGroupContrller) {
                 scope.isOpen = false;
 
@@ -60,7 +61,6 @@ angular.module('myApp', [])
 
 
                 kittencupGroupContrller.groups.push(scope);
-            },
-            transclude: true
+            }
         }
     });
