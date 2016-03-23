@@ -16,6 +16,8 @@ var myApp = angular.module('myApp', [])
         }
     })
 
-    .controller('firstController', ['$scope', function ($scope) {
+    .controller('firstController', ['$scope', '$compile', function ($scope, $compile) {
         $scope.name = '张三';
+
+        angular.element('.container').append($compile('<custom-tags></custom-tags>')($scope));
     }]);
