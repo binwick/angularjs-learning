@@ -16,31 +16,31 @@ angular.module('myApp', [])
                     }
                 ];
 
-                this.addBook = function(){
+                this.addBook = function () {
 
-                    $scope.$apply(function(){
+                    $scope.$apply(function () {
                         $scope.books.push({
-                            name:'Angularjs'
+                            name: 'Angularjs'
                         })
                     });
                 }
             },
-            controllerAs:'bookListController',
+            controllerAs: 'bookListController',
             template: '<div><ul><li ng-repeat="book in books">{{book.name}}</li></ul><book-add></book-add></div>',
-            replace:true
+            replace: true
 
         }
 
     })
 
-    .directive('bookAdd',function(){
+    .directive('bookAdd', function () {
         return {
-            restrict:'ECAM',
-            require:'^bookList',
-            template:'<button type="button">添加</button>',
-            replace:true,
-            link:function(scope,iElement,iAttrs,bookListController){
-                iElement.on('click',bookListController.addBook);
+            restrict: 'ECAM',
+            require: '^bookList',
+            template: '<button type="button">添加</button>',
+            replace: true,
+            link: function (scope, iElement, iAttrs, bookListController) {
+                iElement.on('click', bookListController.addBook);
             }
         }
     })
