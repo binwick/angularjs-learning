@@ -9,12 +9,16 @@ var myApp = angular.module('myApp', [])
 
             $scope.status = !$scope.status;
 
-        }
+        };
 
         $scope.defaultStyle = {
             color: 'red',
             'margin-top': '50px'
         };
 
+        $scope.name = "李四";
+
+        $scope.templateName = "other.html";
+
         $scope.src = 'http://www.angularjs.org/img/AngularJS-large.png';
-    })
+    });

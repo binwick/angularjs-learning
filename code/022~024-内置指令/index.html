@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <style>
-        .red{
-            color:red;
+        .red {
+            color: red;
         }
     </style>
 </head>
@@ -18,7 +18,7 @@
 
         <!-- $scope.cityArr = ['上海','北京','杭州'] -->
         <ul ng-class="{red:status}" ng-init="cityArr = ['上海','北京','杭州']">
-            <li ng-class-even="'偶数'" ng-class-odd="'奇数'" ng-repeat="city in cityArr" >
+            <li ng-class-even="'偶数'" ng-class-odd="'奇数'" ng-repeat="city in cityArr">
             <span>
                 index:{{$index}}
             </span>
@@ -38,30 +38,13 @@
         </ul>
 
 
-
-        <div ng-include="'other.html'">
+        <div ng-include="templateName">
 
         </div>
 
         <div ng-include src="'other.html'">
 
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     </div>
