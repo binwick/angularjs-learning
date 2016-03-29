@@ -17,7 +17,6 @@ var myApp = angular.module('myApp', [])
         };
 
         $scope.name = "李四";
-        $scope.name = "张三";
 
         $scope.templateName = "other.html";
 
