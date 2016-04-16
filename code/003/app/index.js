@@ -28,6 +28,6 @@ app // app 模块
         }
     })
     .controller('firstController', ['$scope', '$filter', function ($scope, $filter) {
-
+        $scope.location = "http://qr.fd.zol-img.com.cn/qrcode/qrcodegen.php?sizeNum=16&logotype=default&url=http%3A%2F%2Fdesk.fd.zol-img.com.cn%2Ft_s960x600c5%2Fg5%2FM00%2F0F%2F08%2FChMkJlcQe8OIAcHrAAXxSfU6fGQAAP8jQLGOmwABfFh119.jpg&token=c8c7912b51";
 
     }]);
