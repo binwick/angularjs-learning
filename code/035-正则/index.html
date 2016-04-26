@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../../vendor/bootstrap3/bootstrap.css" rel="stylesheet">
+    <link href="../../vendor/bootstrap3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../vendor/bootstrap3/css/prettify-1.0.css" rel="stylesheet">
+    <link href="../../vendor/bootstrap3/css/base.css" rel="stylesheet">
+    <link href="../../vendor/bootstrap3/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../vendor/bootstrap3/css/default.css">
+
+    <script src="../../vendor/angular/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="../../vendor/angular/angular.js" type="text/javascript"></script>
+    <script src="../../vendor/bootstrap3/bootstrap.js" type="text/javascript"></script>
+    <script src="../../vendor/bootstrap3/moment-with-locales.js" type="text/javascript"></script>
+    <script src="../../vendor/bootstrap3/bootstrap-datetimepicker.js" type="text/javascript"></script>
+    <script src="app/index.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="container" ng-controller="firstController">
+    <div class="row">
+        <div class='col-lg-4'>
+            <div class="form-group">
+                <div class='input-group date'>
+                    <input type='text' bs-datepicker date-format="yyyy-MM-dd HH:mm:ss" name="date" class="form-control"
+                           ng-model="date"/>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+
+    {{date}}
+    </div>
+</div>
+
+
+</body>
+</html>
