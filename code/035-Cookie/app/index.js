@@ -57,15 +57,21 @@ angular.module('myApp', ['ngCookies'])
         };
     })
     .controller('firstController', ['$scope', '$cookies', '$cookieStore', function ($scope, $cookies, $cookieStore) {
-        $cookieStore.put("name", "my name");
+        // $cookieStore.put("name", "my name");
         // $cookieStore.get("name") == "my name";
         // $cookieStore.remove("name");
 
-        $cookieStore.put("persion", {
+        $cookieStore.put("person", {
             name: "my name",
             age: 18
         });
 
-        $scope.person = $cookieStore.get("persion");
+        $cookieStore.put('person', {
+            name: "new name",
+            age: 23
+        });
+
+
+        $scope.person = $cookieStore.get("person");
         console.log($scope.person);
     }]);
