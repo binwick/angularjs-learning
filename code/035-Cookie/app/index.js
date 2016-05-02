@@ -61,14 +61,26 @@ angular.module('myApp', ['ngCookies'])
         // $cookieStore.get("name") == "my name";
         // $cookieStore.remove("name");
 
-        $cookieStore.put("person", {
-            name: "my name",
-            age: 18
-        });
+        // $cookieStore.put("person", {
+        //     name: "my name",
+        //     age: 18
+        // });
+        //
+        // $cookieStore.put('person', {
+        //     name: "new name",
+        //     age: 23
+        // });
 
-        $cookieStore.put('person', {
-            name: "new name",
-            age: 23
+        // 设置带参数的cookie
+        var now = new Date(),
+            expireDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes() + 1, now.getSeconds());
+        // expireDate.setDate(expireDate.getDate() + 1);
+        console.log(expireDate.toUTCString());
+        $cookies.putObject('person', {
+            name: "new new name",
+            age: 24
+        }, {
+            'expires': expireDate
         });
 
 
