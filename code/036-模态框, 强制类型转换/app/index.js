@@ -63,4 +63,15 @@ app // app 模块
         }
 
         console.log(flag);
+
+        $scope.data = {
+            0: "0000",
+            1: "1111",
+            2: "2222"
+        };
+
+        $scope.showChange = function () {
+            console.log('show change:', typeof $scope.myKey);
+        }
+
     }]);

@@ -69,13 +69,22 @@
 //        $('#myModal').modal({
 //            keyboard: false,
 //        })
-        $('#myModal').fadeIn(5000);
+//        $('#myModal').fadeIn(5000);
+
+
+        var intValue = '4';
+        console.log(typeof intValue);
+        console.log(typeof (intValue >> 0));
+        console.log(typeof (+intValue));
     });
 
 </script>
-
-
 非模态框
+<div class="container" ng-controller="firstController">
+    <div class="col-lg-1">
+        <select class="form-control" ng-change="showChange()" ng-model="myKey" ng-options="+k as v for (k, v) in data"></select>
+    </div>
 
+</div>
 </body>
 </html>
