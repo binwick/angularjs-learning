@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="Demo" ng-controller="DemoController">
+<head>
+    <meta charset="utf-8"/>
+
+    <title>
+        Don't Forget To Cancel $timeout Timers In Your $destroy Events In AngularJS
+    </title>
+</head>
+<body>
+
+<h1>
+    Don't Forget To Cancel $timeout Timers In Your $destroy Events In AngularJS
+</h1>
+
+<p>
+    <a href="#" ng-click="toggle()">Toggle Section</a>
+</p>
+
+<div ng-switch="section">
+
+    <p ng-switch-when="happy" bn-directive>
+        Oh sweet!
+    </p>
+
+    <p ng-switch-when="sad" bn-directive-alt>
+        Oh noes!
+    </p>
+
+</div>
+
+
+<!-- Load jQuery and AngularJS. -->
+<script type="text/javascript" src="../../vendor/angular/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../../vendor/angular/angular.js"></script>
+<script src="app/index.js"></script>
+
+</body>
+</html>

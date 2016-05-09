@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../../vendor/bootstrap3/bootstrap.css" rel="stylesheet">
+    <link href="../../vendor/bootstrap3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../vendor/bootstrap3/css/prettify-1.0.css" rel="stylesheet">
+    <link href="../../vendor/bootstrap3/css/base.css" rel="stylesheet">
+    <link href="../../vendor/bootstrap3/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../vendor/bootstrap3/css/default.css">
+
+    <script src="../../vendor/angular/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="../../vendor/angular/angular.js" type="text/javascript"></script>
+    <script src="../../vendor/bootstrap3/bootstrap.js" type="text/javascript"></script>
+    <script src="../../vendor/bootstrap3/moment-with-locales.js" type="text/javascript"></script>
+    <script src="../../vendor/bootstrap3/bootstrap-datetimepicker.js" type="text/javascript"></script>
+    <script src="app/index.js" type="text/javascript"></script>
+    <style>
+        #scrollArea {
+
+            height: 280px;
+            overflow: auto;
+
+        }
+
+        #bottom {
+
+            display: block;
+            margin-top: 2000px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="container" id="scrollArea" ng-controller="firstController">
+    <a ng-click="gotoBottom()">Go to bottom</a>
+    <a id="bottom"></a> You're at the bottom!
+</div>
+
+</body>
+</html>
