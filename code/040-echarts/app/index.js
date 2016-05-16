@@ -6,7 +6,7 @@ echartsApp.directive('line', function () {
             legend: "=",
             item: "=",
             data: "=",
-            title: "@"
+            optionTitle: "@"
         },
         restrict: 'E',
         template: '<div style="height:400px ;"></div>',
@@ -14,7 +14,7 @@ echartsApp.directive('line', function () {
         link: function ($scope, element, attrs, controller) {
             var option = {
                 title: {
-                    text: $scope.title
+                    text: $scope.optionTitle
                 },
                 // 提示框，鼠标悬浮交互时的信息提示
                 tooltip: {
@@ -37,16 +37,16 @@ echartsApp.directive('line', function () {
                 }],
                 // 数据内容数组
                 series: function () {
-                    var service = [];
+                    var serie = [];
                     for (var i = 0; i < $scope.legend.length; i++) {
                         var item = {
                             name: $scope.legend[i],
                             type: 'line',
                             data: $scope.data[i]
                         };
-                        service.push(item);
+                        serie.push(item);
                     }
-                    return service;
+                    return serie;
                 }()
             };
             var myChart = echarts.init(document.getElementById($scope.id), 'macarons');
@@ -61,7 +61,7 @@ echartsApp.directive('bar', function () {
             legend: "=",
             item: "=",
             data: "=",
-            title: "@"
+            optionTitle: "@"
         },
         restrict: 'E',
         template: '<div style="height:400px ;"></div>',
@@ -69,7 +69,7 @@ echartsApp.directive('bar', function () {
         link: function ($scope, element, attrs, controller) {
             var option = {
                 title: {
-                    text: $scope.title
+                    text: $scope.optionTitle
                 },
                 tooltip: {
                     trigger: 'axis',
@@ -99,16 +99,16 @@ echartsApp.directive('bar', function () {
                 ],
                 // 数据内容数组
                 series: function () {
-                    var service = [];
+                    var serie = [];
                     for (var i = 0; i < $scope.legend.length; i++) {
                         var item = {
                             name: $scope.legend[i],
                             type: 'bar',
                             data: $scope.data[i]
                         };
-                        service.push(item);
+                        serie.push(item);
                     }
-                    return service;
+                    return serie;
                 }()
             };
             var myChart = echarts.init(document.getElementById($scope.id), 'macarons');
@@ -121,9 +121,9 @@ echartsApp.directive('pie', function () {
         scope: {
             id: "@",
             legend: "=",
-            item: "=",
             data: "=",
-            title: "@"
+            seriesName: '@',
+            optionTitle: "@"
         },
         restrict: 'E',
         template: '<div style="height:400px ;"></div>',
@@ -131,7 +131,7 @@ echartsApp.directive('pie', function () {
         link: function ($scope, element, attrs, controller) {
             var option = {
                 title: {
-                    text: $scope.title,
+                    text: $scope.optionTitle,
                     x: 'center'
                 },
                 tooltip: {
@@ -145,7 +145,7 @@ echartsApp.directive('pie', function () {
                 },
                 series: [
                     {
-                        // name: '访问来源',
+                        name: $scope.seriesName,
                         type: 'pie',
                         radius: '55%',
                         center: ['50%', '60%'],
@@ -195,9 +195,9 @@ app.controller('firstController', ['$scope', '$filter', '$location', '$anchorScr
     $scope.data2 = [
         {value: 335, name: '直接访问'},
         {value: 310, name: '邮件营销'},
-        {value: 234, name: '联盟广告'},
         {value: 135, name: '视频广告'},
-        {value: 1548, name: '搜索引擎'}
+        {value: 234, name: '联盟广告'},
+        {value: 1548, name: '搜索引擎'},
     ];
 
 }]);
