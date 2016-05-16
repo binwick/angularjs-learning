@@ -18,4 +18,14 @@ app.controller('firstController', ['$scope', '$filter', '$location', '$anchorScr
         $anchorScroll();
 
     };
+    $scope.amount = 123456;
+    $scope.tooltipAmount = '';
+    var termAmounts = ['', '十', '百', '千', '万', '十万', '百万', '千万', '亿'];
+
+    var amount = $scope.amount.toString();
+    if (amount.lastIndexOf('.') != -1) {
+        $scope.tooltipAmount = termAmounts[amount.substr(0, amount.lastIndexOf('.')).length - 1];
+    } else {
+        $scope.tooltipAmount = termAmounts[amount.length - 1];
+    }
 }]);

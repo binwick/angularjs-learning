@@ -32,11 +32,22 @@
         }
     </style>
 </head>
-<body>
-<div class="container" id="scrollArea" ng-controller="firstController">
+<body ng-controller="firstController">
+<div class="container" id="scrollArea">
     <a ng-click="gotoBottom()">Go to bottom</a>
     <a id="bottom"></a> You're at the bottom!
+
+</div>
+<div class="container">
+    <span class="tooltip-show tooltip-arrow" data-toggle="tooltip"
+          title="{{tooltipAmount}}"></span>{{amount}}
 </div>
 
+<script>
+    $(function () {
+        $('.tooltip-show').tooltip('show');
+    });
+
+</script>
 </body>
 </html>
