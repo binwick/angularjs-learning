@@ -1,184 +1,184 @@
-var echartsApp = angular.module('ng-echarts', []);
-echartsApp.directive('line', function () {
-    return {
-        scope: {
-            id: "@",
-            legend: "=",
-            item: "=",
-            data: "=",
-            optionTitle: "@"
-        },
-        restrict: 'E',
-        template: '<div style="height:400px ;"></div>',
-        replace: true,
-        link: function ($scope, element, attrs, controller) {
-            var option = {
-                title: {
-                    text: $scope.optionTitle
-                },
-                // 提示框，鼠标悬浮交互时的信息提示
-                tooltip: {
-                    show: true,
-                    // trigger: 'item'
-                    trigger: 'axis'
-                },
-                // 图例
-                legend: {
-                    data: $scope.legend
-                },
-                // 横轴坐标轴
-                xAxis: [{
-                    type: 'category',
-                    data: $scope.item
-                }],
-                // 纵轴坐标轴
-                yAxis: [{
-                    type: 'value'
-                }],
-                // 数据内容数组
-                series: function () {
-                    var serie = [];
-                    for (var i = 0; i < $scope.legend.length; i++) {
-                        var item = {
-                            name: $scope.legend[i],
-                            type: 'line',
-                            data: $scope.data[i]
-                        };
-                        serie.push(item);
-                    }
-                    return serie;
-                }()
-            };
-            var myChart = echarts.init(document.getElementById($scope.id), 'macarons');
-            myChart.setOption(option);
-        }
-    };
-});
-echartsApp.directive('bar', function () {
-    return {
-        scope: {
-            id: "@",
-            legend: "=",
-            item: "=",
-            data: "=",
-            optionTitle: "@"
-        },
-        restrict: 'E',
-        template: '<div style="height:400px ;"></div>',
-        replace: true,
-        link: function ($scope, element, attrs, controller) {
-            var option = {
-                title: {
-                    text: $scope.optionTitle
-                },
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                    }
-                },
-                legend: {
-                    data: $scope.legend
-                },
-                grid: {
-                    left: '3%',
-                    right: '4%',
-                    bottom: '3%',
-                    containLabel: true
-                },
-                xAxis: [
-                    {
+angular.module('ng-echarts', [])
+    .directive('line', function () {
+        return {
+            scope: {
+                id: "@",
+                legend: "=",
+                item: "=",
+                data: "=",
+                optionTitle: "@"
+            },
+            restrict: 'E',
+            template: '<div style="height:400px ;"></div>',
+            replace: true,
+            link: function ($scope, element, attrs, controller) {
+                var option = {
+                    title: {
+                        text: $scope.optionTitle
+                    },
+                    // 提示框，鼠标悬浮交互时的信息提示
+                    tooltip: {
+                        show: true,
+                        // trigger: 'item'
+                        trigger: 'axis'
+                    },
+                    // 图例
+                    legend: {
+                        data: $scope.legend
+                    },
+                    // 横轴坐标轴
+                    xAxis: [{
                         type: 'category',
                         data: $scope.item
-                    }
-                ],
-                yAxis: [
-                    {
+                    }],
+                    // 纵轴坐标轴
+                    yAxis: [{
                         type: 'value'
-                    }
-                ],
-                // 数据内容数组
-                series: function () {
-                    var serie = [];
-                    for (var i = 0; i < $scope.legend.length; i++) {
-                        var item = {
-                            name: $scope.legend[i],
-                            type: 'bar',
-                            data: $scope.data[i]
-                        };
-                        serie.push(item);
-                    }
-                    return serie;
-                }()
-            };
-            var myChart = echarts.init(document.getElementById($scope.id), 'macarons');
-            myChart.setOption(option);
-        }
-    };
-});
-echartsApp.directive('pie', function () {
-    return {
-        scope: {
-            id: "@",
-            legend: "=",
-            data: "=",
-            seriesName: '@',
-            optionTitle: "@"
-        },
-        restrict: 'E',
-        template: '<div style="height:400px ;"></div>',
-        replace: true,
-        link: function ($scope, element, attrs, controller) {
-            var option = {
-                title: {
-                    text: $scope.optionTitle,
-                    x: 'center'
-                },
-                tooltip: {
-                    trigger: 'item',
-                    formatter: "{a} <br/>{b} : {c} ({d}%)"
-                },
-                legend: {
-                    orient: 'vertical',
-                    left: 'left',
-                    data: $scope.legend
-                },
-                series: [
-                    {
-                        name: $scope.seriesName,
-                        type: 'pie',
-                        radius: '55%',
-                        center: ['50%', '60%'],
-                        // data: [
-                        //     
-                        // ],
-                        data: function () {
-                            var datas = [];
-                            for (var i = 0; i < $scope.data.length; i++) {
-                                var item = {
-                                    name: $scope.data[i].name,
-                                    value: $scope.data[i].value
-                                };
-                                datas.push(item);
-                            }
-                            return datas;
-                        }(),
-                        itemStyle: {
-                            emphasis: {
-                                shadowBlur: 10,
-                                shadowOffsetX: 0,
-                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }],
+                    // 数据内容数组
+                    series: function () {
+                        var serie = [];
+                        for (var i = 0; i < $scope.legend.length; i++) {
+                            var item = {
+                                name: $scope.legend[i],
+                                type: 'line',
+                                data: $scope.data[i]
+                            };
+                            serie.push(item);
+                        }
+                        return serie;
+                    }()
+                };
+                var myChart = echarts.init(document.getElementById($scope.id), 'macarons');
+                myChart.setOption(option);
+            }
+        };
+    })
+    .directive('bar', function () {
+        return {
+            scope: {
+                id: "@",
+                legend: "=",
+                item: "=",
+                data: "=",
+                optionTitle: "@"
+            },
+            restrict: 'E',
+            template: '<div style="height:400px ;"></div>',
+            replace: true,
+            link: function ($scope, element, attrs, controller) {
+                var option = {
+                    title: {
+                        text: $scope.optionTitle
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                            type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                        }
+                    },
+                    legend: {
+                        data: $scope.legend
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            data: $scope.item
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value'
+                        }
+                    ],
+                    // 数据内容数组
+                    series: function () {
+                        var serie = [];
+                        for (var i = 0; i < $scope.legend.length; i++) {
+                            var item = {
+                                name: $scope.legend[i],
+                                type: 'bar',
+                                data: $scope.data[i]
+                            };
+                            serie.push(item);
+                        }
+                        return serie;
+                    }()
+                };
+                var myChart = echarts.init(document.getElementById($scope.id), 'macarons');
+                myChart.setOption(option);
+            }
+        };
+    })
+    .directive('pie', function () {
+        return {
+            scope: {
+                id: "@",
+                legend: "=",
+                data: "=",
+                seriesName: '@',
+                optionTitle: "@"
+            },
+            restrict: 'E',
+            template: '<div style="height:400px ;"></div>',
+            replace: true,
+            link: function ($scope, element, attrs, controller) {
+                var option = {
+                    title: {
+                        text: $scope.optionTitle,
+                        x: 'center'
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b} : {c} ({d}%)"
+                    },
+                    legend: {
+                        orient: 'vertical',
+                        left: 'left',
+                        data: $scope.legend
+                    },
+                    series: [
+                        {
+                            name: $scope.seriesName,
+                            type: 'pie',
+                            radius: '55%',
+                            center: ['50%', '60%'],
+                            // data: [
+                            //
+                            // ],
+                            data: function () {
+                                var datas = [];
+                                for (var i = 0; i < $scope.data.length; i++) {
+                                    var item = {
+                                        name: $scope.data[i].name,
+                                        value: $scope.data[i].value
+                                    };
+                                    datas.push(item);
+                                }
+                                return datas;
+                            }(),
+                            itemStyle: {
+                                emphasis: {
+                                    shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                }
                             }
                         }
-                    }
-                ]
-            };
+                    ]
+                };
 
-            var myChart = echarts.init(document.getElementById($scope.id), 'macarons');
-            myChart.setOption(option);
-        }
-    };
-});
+                var myChart = echarts.init(document.getElementById($scope.id), 'macarons');
+                myChart.setOption(option);
+            }
+        };
+    });
 
 var app = angular.module('app', ['ng-echarts']);
 app.controller('firstController', ['$scope', '$filter', '$location', '$anchorScroll', function ($scope, $filter, $location, $anchorScroll) {
