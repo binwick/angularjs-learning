@@ -6,14 +6,32 @@ app.controller('firstController', ['$scope', '$filter', '$location', '$anchorScr
     $scope.color = {};
     $scope.color.name = 'x';
 
-    var data = [{id:'124',name:'ttt', MeasureDate:"2015-04-05T18:46:38"},
-        {id:'589',name:'mmm', MeasureDate:"2015-05-05T18:46:38"},
-        {id:'45',name:'yyy' , MeasureDate:"2016-01-05T18:46:38"},
-        {id:'567',name:'eee', MeasureDate:"2016-05-05T18:46:38"}];
+    var data = [{id: '124', name: 'ttt', MeasureDate: "2015-04-05T18:46:38"},
+        {id: '589', name: 'mmm', MeasureDate: "2015-05-05T18:46:38"},
+        {id: '45', name: 'yyy', MeasureDate: "2016-01-05T18:46:38"},
+        {id: '567', name: 'eee', MeasureDate: "2016-05-05T18:46:38"}];
 
-    var sorted = data.sort(function(a, b) {
+    var sorted = data.sort(function (a, b) {
         return Date.parse(b.MeasureDate) - Date.parse(a.MeasureDate);
     });
 
-    console.log(sorted)
+    $('li').sort(function (a, b) {
+        var aDate = $(a).find('.itemDate').text();
+        var bDate = $(b).find('.itemDate').text();
+        // return Date.parse(aDate) - Date.parse(bDate);
+        return new Date(aDate).getTime() - new Date(bDate).getTime();
+    }).appendTo('ul');
+
+    console.log(sorted);
+
+    $scope.items = {
+        1: {
+            "John": 123,
+            "Doe": 234
+        },
+        2: {
+            "John": 456,
+            "Doe": 345
+        }
+    }
 }]);

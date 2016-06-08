@@ -27,5 +27,22 @@
 <input type="radio" ng-model="color.name" ng-checked="color.name == 'x'" value="x">
 <input type="radio" ng-model="color.name" ng-checked="color.name != 'x'" value="">
 
+<div ng-repeat="(key, value) in items   ">
+    {{key}}, {{value}}<br>
+</div>
+<ul>
+    <li>
+        <p class="itemDate">2016-05-03T18:46:38</p>
+    </li>
+    <li>
+        <p class="itemDate">2016-05-02T18:46:38</p>
+    </li>
+    <li>
+        <p class="itemDate">2016-05-01T18:46:38</p>
+    </li>
+    <li>
+        <p class="itemDate">2016-05-05T18:46:38</p>
+    </li>
+</ul>
 </body>
 </html>
