@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet"
+          href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+
+</head>
+
+<body ng-app="KACApp">
+<div id="layoutContainer" ng-controller="layoutController as ctrl" style="height:100%">
+    <div layout="row" layout-xs="column">
+        <div flex class="item">Item</div>
+        <div flex="20">Item 2</div>
+    </div>
+</div>
+
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+<!-- Your application bootstrap  -->
+<script type="text/javascript">
+    /**
+     * You must include the dependency on 'ngMaterial'
+     */
+    angular.module('KACApp', ['ngMaterial'])
+            .controller('layoutController', layoutController)
+            .run(function () {
+                console.log('App is ready');
+            });
+
+    function layoutController($scope) {
+
+    }
+</script>
+<style>
+    .item {
+        background: #073857;
+    }
+</style>
+</body>
+</html>
