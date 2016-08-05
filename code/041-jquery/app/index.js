@@ -33,5 +33,21 @@ app.controller('firstController', ['$scope', '$filter', '$location', '$anchorScr
             "John": 456,
             "Doe": 345
         }
+    };
+    // $("#btn_click").attr('disabled', true);
+
+    $scope.test = function () {
+        var tmp = JSON.jsonToString($scope.item);
+        console.log(tmp);
+        return tmp;
     }
+    var jsonToString=typeof JSON !="undefined"? JSON.stringify :function(obj){
+        var arr =[];
+        $.each(obj,function(key, val){
+            var next = key +": ";
+            next += $.isPlainObject(val)? jsonToString(val): val;
+            arr.push( next );
+        });
+        return"{ "+  arr.join(", ")+" }";
+    };
 }]);
