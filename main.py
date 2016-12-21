@@ -68,4 +68,5 @@ def file_handle():
 
 if __name__ == "__main__":
     file_handle()
+    file_handle()
     print 'done.'
