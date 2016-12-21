@@ -63,10 +63,11 @@ def file_handle():
     # cmd_go()
     git_add()
     git_commit()
-    git_push()
+
 
 
 if __name__ == "__main__":
     file_handle()
     file_handle()
+    git_push()
     print 'done.'
