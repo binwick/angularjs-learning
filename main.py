@@ -68,8 +68,7 @@ def file_handle():
 
 if __name__ == "__main__":
     # and new line 
-    for i in range(2):
-        file_handle()
+    file_handle()
     # push github
     git_push()
     print 'done.'
