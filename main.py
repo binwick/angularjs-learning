@@ -41,6 +41,10 @@ def git_push():
     p = subprocess.Popen(cmd, cwd=file_path)
     print p.wait()
 
+def git_pull():
+    cmd = ['git', 'pull', 'origin', 'master']
+    p = subprocess.Popen(cmd, cwd=file_path)
+    print p.wait()
 
 def cmd_list():
     cmd_list = []
@@ -63,7 +67,7 @@ def file_handle():
     # cmd_go()
     git_add()
     git_commit()
-
+    git_pull()
 
 
 if __name__ == "__main__":
