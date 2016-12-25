@@ -75,4 +75,4 @@ if __name__ == "__main__":
     file_handle()
     # push github
     git_push()
-    print 'done.'
+    print 'done.\n'
