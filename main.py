@@ -64,7 +64,7 @@ def file_handle():
     check_file()
     git_pull()
     add_file_line()
-    time.sleep(random.randint(0, 360))  # overtrue 所说的情怀 不需要可注释
+    # time.sleep(random.randint(0, 360))  # overtrue 所说的情怀 不需要可注释
     # cmd_go()
     git_add()
     git_commit()
